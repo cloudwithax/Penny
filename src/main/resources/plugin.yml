@@ -1,0 +1,40 @@
+name: Penny
+version: '${project.version}'
+main: me.cloud.penny.Plugin
+api-version: 1.18
+load: STARTUP
+authors: [ cloudwithax ]
+description: A simple economy plugin
+prefix: Penny
+
+commands:
+  balance:
+    description: Check your balance
+    aliases: [ "bal", "b", "money", "cash" ]
+    usage: /<command>
+  pay:
+    description: Pay a player a specified amount
+    usage: /<command> [player] [amount]
+  addmoney:
+    description: Add money to a player's balance
+    usage: /<command> [player] [amount]
+    permission: penny.owner
+  removemoney:
+    description: Remove money from a player's balance
+    usage: /<command> [player] [amount]
+    permission: penny.owner
+  baltop:
+    description: Shows you the top balance's of all players who've joined the server
+    aliases: [ "balancetop", "btop" ]
+    usage: /<command>
+
+
+permissions:
+  penny.owner:
+    description: Allows access to owner-only commands
+    default: op
+  penny.*:
+    description: Base permission for Penny
+    default: op
+    children:
+      penny.owner: true
